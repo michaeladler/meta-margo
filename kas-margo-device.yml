@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Margo
+#
+# SPDX-License-Identifier: MIT
+#
+# SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
+
+header:
+  version: 14
+  includes:
+    - kas/margo.yml
+
+target: margo-device-image
+
+# can be overriden using the environment variable KAS_MACHINE
+machine: qemu-amd64
+
+local_conf_header:
+  disk:
+    ROOTFS_EXTRA = "1024" # MB
+  root_password: |
+    USERS += "root"
+    USER_root[password] = "root"
+    USER_root[flags] = "clear-text-password"

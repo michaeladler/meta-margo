@@ -1,0 +1,34 @@
+---
+# SPDX-FileCopyrightText: 2025 Margo
+#
+# SPDX-License-Identifier: MIT
+#
+# SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
+name: ci
+
+on: [push]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-margo-device-amd64:
+    name: Margo Device amd64
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+
+      - name: Build image
+        run: export KAS_MACHINE=qemu-amd64; ./kas-container --isar build kas-margo-device.yml
+      - run: find build/tmp/deploy/images
+      - name: Upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: margo-device-amd64
+          path: build/tmp/deploy/images/qemu-amd64

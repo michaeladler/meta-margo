@@ -1,0 +1,16 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2025 Margo
+#
+# SPDX-License-Identifier: MIT
+#
+# SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
+set -eu
+
+echo "margo demo image (login: root/root)" > /etc/issue
+
+HOSTNAME="margo"
+echo "$HOSTNAME" > /etc/hostname
+echo "127.0.0.1 $HOSTNAME" >> /etc/hosts
+
+deb-systemd-helper systemd-networkd.service
+deb-systemd-helper systemd-resolved.service

@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 Margo
+#
+# SPDX-License-Identifier: MIT
+#
+# SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
+
+header:
+  version: 14
+  includes:
+    - repo: cip-core
+      file: kas-cip.yml
+
+build_system: isar
+
+repos:
+  meta-margo:
+
+  cip-core:
+    url: https://gitlab.com/cip-project/cip-core/isar-cip-core.git
+    commit: ae88bd1a66770ebec9e3de3755f13c63043ccb63
+
+local_conf_header:
+  standard: |
+    CONF_VERSION = "1"
+  crossbuild: |
+    ISAR_CROSS_COMPILE = "1"
+  ccache:
+    USE_CCACHE = "0"
+  compatsupport: |
+    ISAR_ENABLE_COMPAT_ARCH = "1"
