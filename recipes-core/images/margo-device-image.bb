@@ -18,5 +18,6 @@ IMAGE_PREINSTALL += " \
 "
 
 IMAGE_INSTALL += " \
-  margo-customizations \
+    margo-customizations \
+    insecure-ssh \
 "

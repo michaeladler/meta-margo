@@ -14,3 +14,6 @@ build-margo-device MACHINE="qemu-amd64":
 
 start-margo-device MACHINE="qemu-amd64":
     ./scripts/start-margo-device.sh "{{ MACHINE }}"
+
+ssh:
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@localhost -p 22222
