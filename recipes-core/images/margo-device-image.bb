@@ -20,4 +20,5 @@ IMAGE_PREINSTALL += " \
 IMAGE_INSTALL += " \
     margo-customizations \
     insecure-ssh \
+    oci-watcher \
 "

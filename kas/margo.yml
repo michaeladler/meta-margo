@@ -28,3 +28,5 @@ local_conf_header:
     USE_CCACHE = "0"
   compatsupport: |
     ISAR_ENABLE_COMPAT_ARCH = "1"
+  backports: |
+    DISTRO_APT_SOURCES:append = " conf/distro/debian-bookworm-backports.list"
