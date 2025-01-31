@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2025 Margo
+#
+# SPDX-License-Identifier: MIT
+#
+# SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
+
+mainmenu "Isar layer for Margo"
+
+config KAS_BUILD_SYSTEM
+	string
+	default "isar"
+
+config ARCH_AMD64
+	bool
+
+config ARCH_ARM64
+	bool
+
+###############################################################################
+# Image Kind
+###############################################################################
+choice
+	prompt "Image kind"
+	default IMAGE_KIND_MARGO_DEVICE
+
+config IMAGE_KIND_MARGO_DEVICE
+	bool "Margo Device"
+
+endchoice
+
+###############################################################################
+# Target Board
+###############################################################################
+choice
+	prompt "Target board"
+	default TARGET_QEMU_AMD64
+
+config TARGET_QEMU_AMD64
+	bool "QEMU AMD64 (x86-64)"
+	select ARCH_AMD64
+
+config TARGET_QEMU_ARM64
+	bool "QEMU ARM64 (aarch64)"
+	select ARCH_ARM64
+
+endchoice
+
+###############################################################################
+# kas includes
+###############################################################################
+config KAS_INCLUDE_KIND
+	string
+	default "kas-margo-device.yml" if IMAGE_KIND_MARGO_DEVICE
+
+config KAS_INCLUDE_BOARD
+	string
+	default "kas/board/qemu-amd64.yml" if TARGET_QEMU_AMD64
+	default "kas/board/qemu-arm64.yml" if TARGET_QEMU_ARM64
+
+# vim: noexpandtab ts=8 sw=8

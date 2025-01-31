@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Margo
+#
+# SPDX-License-Identifier: MIT
+#
+# SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
+
+header:
+  version: 14
+
+machine: qemu-amd64

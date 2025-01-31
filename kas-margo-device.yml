@@ -9,10 +9,9 @@ header:
   includes:
     - kas/margo.yml
 
-target: margo-device-image
+build_system: isar
 
-# can be overriden using the environment variable KAS_MACHINE
-machine: qemu-amd64
+target: margo-device-image
 
 local_conf_header:
   disk:

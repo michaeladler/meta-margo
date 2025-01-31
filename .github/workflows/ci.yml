@@ -23,9 +23,8 @@ jobs:
         uses: jlumbroso/free-disk-space@main
         with:
           tool-cache: true
-
       - name: Build image
-        run: export KAS_MACHINE=qemu-amd64; ./kas-container --isar build kas-margo-device.yml
+        run: ./kas-container build kas-margo-device.yml:kas/board/qemu-amd64.yml
       - run: find build/tmp/deploy/images
       - name: Upload image
         uses: actions/upload-artifact@v4

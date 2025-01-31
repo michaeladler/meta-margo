@@ -7,34 +7,27 @@ This repository generates bootable images of [Margo](https://margo.org/) applian
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com/) or [Podman](https://podman.io/)
-- Optional: [just](https://github.com/casey/just) (to run the tasks in [justfile](justfile))
+- [Docker](https://www.docker.com/) or [Podman](https://podman.io/) (you must be able to start privileged containers)
 - Optional: [QEMU](https://www.qemu.org/) (to boot the generated root filesystems)
 
-## Build and Run a Margo Device
+## Building Margo Images
 
-### Build
+Open up the image configuration menu and select the desired target and its options:
 
-To generate a bootable ext4 root filesystem for the default amd64 architecture, run:
-
-```sh
-$ just build-margo-device
+```
+$ ./kas-container menu
 ```
 
-To build for arm64 architecture, run:
+## Boot Margo Images
 
-```sh
-$ just build-margo-device qemu-arm64
+Run the following command and select the desired board:
+
+```
+$ ./scripts/start-margo-device.sh [qemu-amd64|qemu-arm64]
 ```
 
-### Run
+You can also login via SSH, e.g.
 
-To launch the resulting image (ext4) in QEMU, use the following commands:
-
-```sh
-# For qemu-amd64
-$ just start-margo-device
-
-# For qemu-arm64
-$ just start-margo-device qemu-arm64
+```
+$ ssh root@localhost -p 22222
 ```

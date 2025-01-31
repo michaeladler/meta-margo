@@ -10,8 +10,6 @@ header:
     - repo: cip-core
       file: kas-cip.yml
 
-build_system: isar
-
 repos:
   meta-margo:
 
