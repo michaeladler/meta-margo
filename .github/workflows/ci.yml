@@ -24,7 +24,7 @@ jobs:
         with:
           tool-cache: true
       - name: Build image
-        run: ./kas-container build kas-margo-device.yml:kas/board/qemu-amd64.yml
+        run: ./kas-container build kas-margo.yml:kas/margo-device.yml:kas/board/qemu-amd64.yml
       - run: find build/tmp/deploy/images
       - name: Upload image
         uses: actions/upload-artifact@v4

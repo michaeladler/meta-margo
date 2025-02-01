@@ -6,10 +6,6 @@
 
 header:
   version: 14
-  includes:
-    - kas/margo.yml
-
-build_system: isar
 
 target: margo-device-image
 

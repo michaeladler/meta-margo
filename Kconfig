@@ -6,6 +6,10 @@
 
 mainmenu "Isar layer for Margo"
 
+config KAS_INCLUDE_MAIN
+	string
+	default "kas-margo.yml"
+
 config KAS_BUILD_SYSTEM
 	string
 	default "isar"
@@ -50,7 +54,7 @@ endchoice
 ###############################################################################
 config KAS_INCLUDE_KIND
 	string
-	default "kas-margo-device.yml" if IMAGE_KIND_MARGO_DEVICE
+	default "kas/margo-device.yml" if IMAGE_KIND_MARGO_DEVICE
 
 config KAS_INCLUDE_BOARD
 	string
