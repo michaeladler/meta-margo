@@ -17,7 +17,7 @@ repos:
 
   cip-core:
     url: https://gitlab.com/cip-project/cip-core/isar-cip-core.git
-    commit: ae88bd1a66770ebec9e3de3755f13c63043ccb63
+    commit: 32fcde2c5d688f4722c52faadd042c86cf0c5095
 
 local_conf_header:
   standard: |
