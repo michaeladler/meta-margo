@@ -1,3 +1,5 @@
+[![ci](https://github.com/michaeladler/meta-margo/actions/workflows/ci.yml/badge.svg)](https://github.com/michaeladler/meta-margo/actions/workflows/ci.yml)
+
 # meta-margo
 
 This repository generates bootable images of [Margo](https://margo.org/) appliances using [Isar](https://github.com/ilbers/isar) and [isar-cip-core](https://gitlab.com/cip-project/cip-core/isar-cip-core).
