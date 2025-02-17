@@ -4,9 +4,21 @@
 #
 # SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
 
+ifneq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
+
+ifeq ($(DEB_HOST_GNU_TYPE),aarch64-linux-gnu)
+GOARCH = arm64
+endif
+
+ifeq ($(DEB_HOST_GNU_TYPE),x86_64-linux-gnu)
+GOARCH = amd64
+endif
+
+endif
+
 .PHONY: build
 build:
-	export GOTOOLCHAIN=local; /usr/lib/go-1.23/bin/go build -ldflags="-s -w"
+	export GOTOOLCHAIN=local GOARCH=$(GOARCH); go build -ldflags="-s -w"
 
 .PHONY: install
 install:

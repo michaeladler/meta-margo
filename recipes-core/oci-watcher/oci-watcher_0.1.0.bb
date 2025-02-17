@@ -18,10 +18,8 @@ DESCRIPTION = "oci-watcher"
 
 MAINTAINER = "Michael Adler <michael.adler@siemens.com>"
 
-DEBIAN_BUILD_DEPENDS = "golang-1.23"
+DEBIAN_BUILD_DEPENDS = "golang:native"
 DEBIAN_DEPENDS = "\${shlibs:Depends}"
-
-ISAR_CROSS_COMPILE = "0"
 
 S = "${WORKDIR}/git"
 
