@@ -13,9 +13,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-margo-device-amd64:
-    name: Margo Device amd64
-    runs-on: ubuntu-22.04
+  build-margo-device:
+    name: Margo Device ${{ matrix.arch }}
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        arch: [amd64, arm64]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,10 +27,10 @@ jobs:
         with:
           tool-cache: true
       - name: Build image
-        run: ./kas-container build kas-margo.yml:kas/margo-device.yml:kas/board/qemu-amd64.yml
+        run: ./kas-container build kas-margo.yml:kas/margo-device.yml:kas/board/qemu-${{ matrix.arch }}.yml
       - run: find build/tmp/deploy/images
       - name: Upload image
         uses: actions/upload-artifact@v4
         with:
-          name: margo-device-amd64
-          path: build/tmp/deploy/images/qemu-amd64
+          name: margo-device-${{ matrix.arch }}
+          path: build/tmp/deploy/images/qemu-${{ matrix.arch }}
