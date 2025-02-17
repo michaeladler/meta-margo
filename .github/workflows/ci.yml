@@ -6,7 +6,15 @@
 # SPDX-FileContributor: Michael Adler <michael.adler@siemens.com>
 name: ci
 
-on: [push]
+on:
+  push:
+    paths:
+      - 'conf/**'
+      - 'recipes-*/**'
+      - 'kas/**/*.yml'
+      - '*.yml'
+  workflow_dispatch:
+  pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
