@@ -17,8 +17,11 @@ repos:
 
   cip-core:
     url: https://gitlab.com/cip-project/cip-core/isar-cip-core.git
-    commit: 2e8069b4c180d29d05aeaa3b073deafdcf53fcd7
+    commit: bd2ca219947252a70e37edb72e1e6ab33502a137
 
 local_conf_header:
   backports: |
+    HOST_DISTRO_APT_SOURCES:append = " conf/distro/debian-bookworm-backports.list"
+    HOST_DISTRO_APT_PREFERENCES:append = " conf/distro/preferences.conf"
     DISTRO_APT_SOURCES:append = " conf/distro/debian-bookworm-backports.list"
+    DISTRO_APT_PREFERENCES:append = " conf/distro/preferences.conf"
