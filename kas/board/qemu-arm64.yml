@@ -8,3 +8,7 @@ header:
   version: 14
 
 machine: qemu-arm64
+
+local_conf_header:
+  kernelconfig:
+    KERNEL_DEFCONFIG ?= "cip-kernel-config/${KERNEL_DEFCONFIG_VERSION}/arm64/cip_container_defconfig"
