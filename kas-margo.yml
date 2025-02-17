@@ -20,13 +20,5 @@ repos:
     commit: 2e8069b4c180d29d05aeaa3b073deafdcf53fcd7
 
 local_conf_header:
-  standard: |
-    CONF_VERSION = "1"
-  crossbuild: |
-    ISAR_CROSS_COMPILE = "1"
-  ccache:
-    USE_CCACHE = "0"
-  compatsupport: |
-    ISAR_ENABLE_COMPAT_ARCH = "1"
   backports: |
     DISTRO_APT_SOURCES:append = " conf/distro/debian-bookworm-backports.list"
