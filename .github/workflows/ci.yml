@@ -40,5 +40,5 @@ jobs:
       - name: Upload image
         uses: actions/upload-artifact@v4
         with:
-          name: margo-device-${{ matrix.arch }}
+          name: qemu-${{ matrix.arch }}
           path: build/tmp/deploy/images/qemu-${{ matrix.arch }}
