@@ -6,13 +6,13 @@
 
 inherit dpkg
 
-_REV="0b0606f70e91533b53e9d0e5bcaa994598ba7078"
+_REV="2ebc4fff4d1bab5a08f07e90e09ca88f6e28deb0"
 
 SRC_URI += "\
     https://github.com/Silvanoc/margo-gitops-poc/archive/${_REV}.tar.gz;downloadfilename=app.tar.gz;unpack=0 \
     file://Makefile \
 "
-SRC_URI[sha256sum] = "7b161ad61f814b00d1b32a3c002ddc8f1d8278dd55731cd8f3afbe308900e970"
+SRC_URI[sha256sum] = "7323450450fd6079624fa47715e1c1cbf1f48803466b8dd62d2d8307cb75be27"
 
 DESCRIPTION = "oci-watcher"
 
