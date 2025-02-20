@@ -18,7 +18,8 @@ endif
 
 .PHONY: build
 build:
-	export GOTOOLCHAIN=local GOARCH=$(GOARCH); go build -ldflags="-s -w"
+	go mod vendor
+	export GOTOOLCHAIN=local GOARCH=$(GOARCH); go build -mod=readonly -trimpath -ldflags="-s -w"
 
 .PHONY: install
 install:
