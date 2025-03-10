@@ -10,7 +10,7 @@ SRC_URI += "\
     file://ssh-permit-root.conf \
 "
 
-DEPENDS = "sshd-regen-keys"
+RDEPENDS:${PN} = "sshd-regen-keys"
 DEBIAN_DEPENDS = "sshd-regen-keys, rsync"
 
 do_install() {
