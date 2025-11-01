@@ -38,7 +38,7 @@ jobs:
         run: ./kas-container build kas-margo.yml:kas/margo-device.yml:kas/board/qemu-${{ matrix.arch }}.yml
       - run: find build/tmp/deploy/images
       - name: Upload image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: qemu-${{ matrix.arch }}
           path: build/tmp/deploy/images/qemu-${{ matrix.arch }}
