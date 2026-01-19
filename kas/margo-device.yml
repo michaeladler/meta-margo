@@ -7,6 +7,8 @@
 header:
   version: 14
 
+distro: cip-core-trixie
+
 target: margo-device-image
 
 local_conf_header:
